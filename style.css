@@ -1,3 +1,28 @@
 img {
-    width: 50px;
+   max-width: 40px;
+   
+}
+
+.pokemonshow{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokecard{
+    display: flex;
+    padding: 5px;
+    width: 100px;
+    height: 80px;
+    border: 1px solid;
+    border-radius: 10px;   
+    margin: 7px;
+}
+
+.pokecard span{
+    font-size: 12px;
+}
+
+.poke-id{
+    font-size: 13px;
+    
 }

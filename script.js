@@ -9,7 +9,7 @@ let pokemonStats = [];
 
 
 async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=120';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
 

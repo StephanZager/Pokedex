@@ -4,12 +4,16 @@ async function renderPokemon(){
 
     for (let i = 0; i < pokemon.length; i++) {
         
-        pokemonsohw.innerHTML += `
-                                <p>${pokemonId[i]}</p>
-                                <div>${pokemonName[i]}</div>
+        pokemonsohw.innerHTML += `<div class="pokecard">
+                                <div>
+                                <span class="poke-id">${pokemonId[i]}</span>
+                                <span class="poke-name">${pokemonName[i]}</span>
+                                <span class="poke-type">${pokemonType[i]}</span>
+                                </div>
+                                <div>
                                 <img src="${pokemonImg[i]}" alt="Pokemon Image"><br>
-                                <p>${pokemonType[i]}</p>
-        
+                                </div>
+                                </div>
         
         `
         
