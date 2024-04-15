@@ -1,8 +1,32 @@
+let pokemon;
+let pokemonDetails;
 
-async function renderPokemon(){
-    let url = 'https://pokeapi.co/api/v2/pokemon';
+
+
+
+async function loadPokemon() {
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
     let reponse = await fetch(url);
-    let reponseAsJson = await reponse.json();
+    let responseAsJson = await reponse.json();
 
-    console.log(reponseAsJson);
-} 
+    pokemon = responseAsJson['results'];
+   
+    console.log(pokemon);
+    loadPokemoninformation();
+}
+
+async function loadPokemoninformation(){
+    for (let i = 0; i < pokemon.length; i++) {
+        let url = 'https://pokeapi.co/api/v2/pokemon/'+ (i + 1);
+        let response = await fetch(url);
+        pokemonDetails = await response.json();
+        console.log(pokemonDetails);
+    }
+}
+
+
+
+
+
+
+
