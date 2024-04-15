@@ -3,6 +3,8 @@ let pokemonDetails;
 let pokemonId;
 let pokemonName;
 let pokemonImg;
+let pokemonType;
+let pokemonStats;
 
 
 
@@ -13,7 +15,7 @@ async function loadPokemon() {
 
     pokemon = responseAsJson['results'];
    
-    console.log(pokemon);
+   // console.log(pokemon);
     loadPokemonInformation();
 }
 
@@ -25,18 +27,26 @@ async function loadPokemonInformation(){
         pokemonId = pokemonDetails['id'];
         pokemonName = pokemonDetails['name'];
         pokemonImg = pokemonDetails['sprites']['other']['dream_world']['front_default'];
-        console.log(pokemonName);        
-        console.log(pokemonImg);
-        console.log(pokemonDetails);
-        test(i, pokemonImg);    
+        pokemonType = pokemonDetails['types']['0']['type']['name'];
+        pokemonStats = pokemonDetails['stats'];
+       // console.log(pokemonDetails);        
+      //  test(i, pokemonImg); 
+      //  loadPokemonEvolutionInformation(i);   
     }   
-    
 }
 
-function test(index, img){
-    let testElement = document.getElementById('test');
-    testElement.innerHTML += `<div>${index + 1}</div><img src="${img}" alt="Pokemon Image"><br>`;
-}
+//async function loadPokemonEvolutionInformation(index){
+//    let url = 'https://pokeapi.co/api/v2/evolution-chain/'+ (index + 1);
+//    let response = await fetch(url);
+//    let responseAsJson = await response.json();
+
+//    console.log(responseAsJson);
+//}
+
+//function test(index, img){
+//    let testElement = document.getElementById('test');
+//    testElement.innerHTML += `<div>${index + 1}</div><img src="${img}" alt="Pokemon Image"><br>`;
+//}
 
 
 
