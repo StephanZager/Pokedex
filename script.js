@@ -1,10 +1,10 @@
 let pokemon;
 let pokemonDetails;
-let pokemonId;
-let pokemonName;
-let pokemonImg;
-let pokemonType;
-let pokemonStats;
+let pokemonId = [];
+let pokemonName = [];
+let pokemonImg = [];
+let pokemonType = [];
+let pokemonStats = [];
 
 
 
@@ -14,25 +14,26 @@ async function loadPokemon() {
     let responseAsJson = await reponse.json();
 
     pokemon = responseAsJson['results'];
-   
-   // console.log(pokemon);
+
+    // console.log(pokemon);
     loadPokemonInformation();
 }
 
-async function loadPokemonInformation(){
+async function loadPokemonInformation() {
     for (let i = 0; i < pokemon.length; i++) {
-        let url = 'https://pokeapi.co/api/v2/pokemon/'+ (i + 1);
+        let url = 'https://pokeapi.co/api/v2/pokemon/' + (i + 1);
         let response = await fetch(url);
         pokemonDetails = await response.json();
-        pokemonId = pokemonDetails['id'];
-        pokemonName = pokemonDetails['name'];
-        pokemonImg = pokemonDetails['sprites']['other']['dream_world']['front_default'];
-        pokemonType = pokemonDetails['types']['0']['type']['name'];
-        pokemonStats = pokemonDetails['stats'];
-       // console.log(pokemonDetails);        
-      //  test(i, pokemonImg); 
-      //  loadPokemonEvolutionInformation(i);   
-    }   
+        pokemonId.push(pokemonDetails['id']);
+        pokemonName.push(pokemonDetails['name']);
+        pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
+        pokemonType.push(pokemonDetails['types']['0']['type']['name']);
+        pokemonStats.push(pokemonDetails['stats']);
+        // console.log(pokemonDetails);        
+        //  test(i, pokemonImg); 
+        //  loadPokemonEvolutionInformation(i);   
+    }
+    await renderPokemon();
 }
 
 //async function loadPokemonEvolutionInformation(index){
