@@ -1,10 +1,11 @@
 async function renderPokemon(){
+    
     let pokemonsohw = document.getElementById('pokemonsohw');
     pokemonsohw.innerHTML = '';
 
     for (let i = 0; i < pokemon.length; i++) {
         
-        pokemonsohw.innerHTML += `<div class="pokecard">
+        pokemonsohw.innerHTML += `<div class="pokecard" id="pokecard">
                                 <div>
                                 <span class="poke-id">${pokemonId[i]}</span>
                                 <span class="poke-name">${pokemonName[i]}</span>
@@ -15,7 +16,8 @@ async function renderPokemon(){
                                 </div>
                                 </div>        
         `        
-    }   
+    } 
+    pokemonTypeColor() ;
 }
 
 function filterPokemon(){

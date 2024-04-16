@@ -50,3 +50,7 @@ header{
 button{
     background-color: rgb(249, 62, 50);
 }
+
+.test{
+    background-color: green;
+}
