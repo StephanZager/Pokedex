@@ -51,17 +51,17 @@ async function loadPokemonInformation() {
     
 }
 
-async function pokemonTypeColor(index) {
-    let pokecard = document.getElementById('pokecard' + index)
-    for (let i = 0; i < pokemon.length; i++) {
-        
-        
-        if (pokemonType[i] === 'grass') {
-            pokecard.classList.add('test');
-        }
-        if (pokemonType[i] === 'fire') {
-            pokecard.classList.add('test1');
-        }
+async function pokemonTypeColor(i) {
+    let pokecard = document.getElementById('pokecard' + i);
+    
+    if (pokemonType[i].includes('grass')) {
+        pokecard.classList.add('test');
+    }
+    if (pokemonType[i].includes('fire')) {
+        pokecard.classList.add('test1');
+    }
+    if (pokemonType[i].includes('water')) {
+        pokecard.classList.add('test1');
     }
 }
 

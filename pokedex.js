@@ -15,7 +15,7 @@ async function renderPokemon(){
                                 </div>
                                 </div>        
         ` 
-       await pokemonTypeColor(i);        
+       pokemonTypeColor(i);    
     } 
     
 }
