@@ -1,28 +1,44 @@
-img {
-   max-width: 40px;
-   
+body {
+    margin: 0 auto;
+
 }
 
-.pokemonshow{
+header{
+    background-color: rgb(249, 62, 50);
+    height: 100px;
+    width: 100%;
+}
+
+.poke-img {
+    position: absolute;
+    bottom: 5px;
+    max-width: 40px;
+    right: 5px;
+
+}
+
+#pokemonsohw {
     display: flex;
     flex-wrap: wrap;
 }
 
-.pokecard{
+.pokecard {
     display: flex;
     padding: 5px;
-    width: 100px;
-    height: 80px;
+    width: 125px;
+    height: 90px;
     border: 1px solid;
-    border-radius: 10px;   
+    border-radius: 10px;
     margin: 7px;
+    box-sizing: border-box;
+    position: relative;
 }
 
-.pokecard span{
+.pokecard span {
     font-size: 12px;
 }
 
-.poke-id{
+.poke-id {
     font-size: 13px;
-    
+
 }

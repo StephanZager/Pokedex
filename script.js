@@ -1,5 +1,5 @@
 let pokemon;
-let pokemonDetails;
+let pokemonDetails ;
 let pokemonId = [];
 let pokemonName = [];
 let pokemonImg = [];
@@ -9,7 +9,7 @@ let pokemonStats = [];
 
 
 async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=120';
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
 
@@ -29,12 +29,19 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
-        // console.log(pokemonDetails);        
+        console.log(pokemonDetails);        
         //  test(i, pokemonImg); 
         //  loadPokemonEvolutionInformation(i);   
     }
     await renderPokemon();
 }
+
+
+
+
+
+
+
 
 //async function loadPokemonEvolutionInformation(index){
 //    let url = 'https://pokeapi.co/api/v2/evolution-chain/'+ (index + 1);

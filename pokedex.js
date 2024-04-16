@@ -11,14 +11,41 @@ async function renderPokemon(){
                                 <span class="poke-type">${pokemonType[i]}</span>
                                 </div>
                                 <div>
-                                <img src="${pokemonImg[i]}" alt="Pokemon Image"><br>
+                                <img class="poke-img" src="${pokemonImg[i]}" alt="Pokemon Image"><br>
                                 </div>
-                                </div>
-        
+                                </div>        
         `
         
     }
 
-
+    
   
+}
+
+function filterPokemon(){
+    let search = document.getElementById('search').value;
+    search = search.toLowerCase();    
+    let pokemonSearchResult = document.getElementById('pokemonsohw');    
+    pokemonSearchResult.innerHTML = '';   
+
+    for (let y = 0; y < pokemonName.length; y++) {
+        const element = pokemonName[y];
+        if(element.toLowerCase().includes(search)){
+            
+            pokemonSearchResult.innerHTML += 
+            `<div class="pokecard">
+            <div>
+            <span class="poke-id">${pokemonId[y]}</span>
+            <span class="poke-name">${pokemonName[y]}</span>
+            <span class="poke-type">${pokemonType[y]}</span>
+            </div>
+            <div>
+            <img class="poke-img" src="${pokemonImg[y]}" alt="Pokemon Image"><br>
+            </div>
+            </div>
+            `
+            
+        }
+        
+    }
 }
