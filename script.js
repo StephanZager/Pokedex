@@ -28,6 +28,7 @@ async function loadMorePokemon() {
 
     //console.log(pokemon);
     loadPokemonInformation();
+    
 }
 
 
@@ -47,18 +48,22 @@ async function loadPokemonInformation() {
         //  loadPokemonEvolutionInformation(i);   
     }
     await renderPokemon();
+    
 }
 
-async function pokemonTypeColor(){
-    let pokecard = document.getElementById('pokecard');
-
-    if(pokemonType.indexOf('grass') !== 1){
-        pokecard.classList.add('test');
+async function pokemonTypeColor(index) {
+    let pokecard = document.getElementById('pokecard' + index)
+    for (let i = 0; i < pokemon.length; i++) {
+        
+        
+        if (pokemonType[i] === 'grass') {
+            pokecard.classList.add('test');
+        }
+        if (pokemonType[i] === 'fire') {
+            pokecard.classList.add('test1');
+        }
     }
-   
-
 }
-
 
 
 
