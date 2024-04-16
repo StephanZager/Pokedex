@@ -14,12 +14,8 @@ async function renderPokemon(){
                                 <img class="poke-img" src="${pokemonImg[i]}" alt="Pokemon Image"><br>
                                 </div>
                                 </div>        
-        `
-        
-    }
-
-    
-  
+        `        
+    }   
 }
 
 function filterPokemon(){

@@ -7,6 +7,9 @@ header{
     background-color: rgb(249, 62, 50);
     height: 100px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .poke-img {
@@ -20,6 +23,7 @@ header{
 #pokemonsohw {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .pokecard {
@@ -41,4 +45,8 @@ header{
 .poke-id {
     font-size: 13px;
 
+}
+
+button{
+    background-color: rgb(249, 62, 50);
 }

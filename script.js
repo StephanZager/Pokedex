@@ -9,7 +9,7 @@ let pokemonStats = [];
 
 
 async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
 
@@ -18,6 +18,19 @@ async function loadPokemon() {
     // console.log(pokemon);
     loadPokemonInformation();
 }
+
+async function test() {
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=40&offset=20';
+    let reponse = await fetch(url);
+    let responseAsJson = await reponse.json();
+
+    pokemon = responseAsJson['results'];
+
+    // console.log(pokemon);
+    loadPokemonInformation();
+}
+
+
 
 async function loadPokemonInformation() {
     for (let i = 0; i < pokemon.length; i++) {
@@ -29,7 +42,7 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
-        console.log(pokemonDetails);        
+        //console.log(pokemonDetails);        
         //  test(i, pokemonImg); 
         //  loadPokemonEvolutionInformation(i);   
     }
