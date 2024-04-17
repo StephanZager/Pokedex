@@ -3,7 +3,7 @@ body {
 
 }
 
-header{
+header {
     background-color: rgb(249, 62, 50);
     height: 100px;
     width: 100%;
@@ -15,7 +15,7 @@ header{
 .poke-img {
     position: absolute;
     bottom: 5px;
-    max-width: 40px;
+    max-width: 90px;
     right: 5px;
 
 }
@@ -29,13 +29,16 @@ header{
 .pokecard {
     display: flex;
     padding: 5px;
-    width: 125px;
-    height: 90px;
-    border: 1px solid;
+    width: 200px;
+    height: 150px;
     border-radius: 10px;
     margin: 7px;
     box-sizing: border-box;
     position: relative;
+}
+
+.pokecard:hover{
+    cursor: pointer;
 }
 
 .pokecard span {
@@ -47,13 +50,51 @@ header{
 
 }
 
-button{
+button {
     background-color: rgb(249, 62, 50);
 }
 
-.test{
+.poke-type-grass {
     background-color: green;
 }
-.test1{
+
+.poke-type-fire {
     background-color: red;
+}
+
+.poke-type-water {
+    background-color: blue;
+}
+
+.poke-type-bug {
+    background-color: rgb(79, 220, 79);
+}
+
+.poke-type-normal {
+    background-color: burlywood;
+}
+
+.poke-type-poison {
+    background-color: rgb(132, 28, 142)
+}
+
+.bg{
+    background-color: rgba(240, 248, 255, 0.378);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poke-card{
+    background-color: aliceblue;
+    width: 400px;
+    height: 700px;
+    box-sizing: border-box;
+    position: relative;
 }

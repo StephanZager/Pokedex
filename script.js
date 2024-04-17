@@ -1,15 +1,13 @@
 let pokemon;
-let pokemonDetails ;
+let pokemonDetails;
 let pokemonId = [];
 let pokemonName = [];
 let pokemonImg = [];
 let pokemonType = [];
 let pokemonStats = [];
 
-
-
-async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
+async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=240';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
 
@@ -27,11 +25,9 @@ async function loadMorePokemon() {
     pokemon = responseAsJson['results'];
 
     //console.log(pokemon);
-    loadPokemonInformation();
-    
+    await loadPokemonInformation();
+
 }
-
-
 
 async function loadPokemonInformation() {
     for (let i = 0; i < pokemon.length; i++) {
@@ -43,27 +39,37 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
-        console.log(pokemonDetails);        
+        //console.log(pokemonDetails);
         //  test(i, pokemonImg); 
         //  loadPokemonEvolutionInformation(i);   
     }
     await renderPokemon();
-    
+
 }
 
 async function pokemonTypeColor(i) {
     let pokecard = document.getElementById('pokecard' + i);
-    
+
     if (pokemonType[i].includes('grass')) {
-        pokecard.classList.add('test');
+        pokecard.classList.add('poke-type-grass');
     }
     if (pokemonType[i].includes('fire')) {
-        pokecard.classList.add('test1');
+        pokecard.classList.add('poke-type-fire');
     }
     if (pokemonType[i].includes('water')) {
-        pokecard.classList.add('test1');
+        pokecard.classList.add('poke-type-water');
+    }
+    if (pokemonType[i].includes('bug')) {
+        pokecard.classList.add('poke-type-bug');
+    }
+    if (pokemonType[i].includes('normal')) {
+        pokecard.classList.add('poke-type-normal');
+    }
+    if (pokemonType[i].includes('poison')) {
+        pokecard.classList.add('poke-type-poison');
     }
 }
+
 
 
 
