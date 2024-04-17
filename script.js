@@ -70,7 +70,14 @@ async function pokemonTypeColor(i) {
     }
 }
 
+function pokemonCardWindowClose(){
+    document.getElementById('pokemon-card-window-close').classList.add('d-none')
+}
 
+function doNotClose(event){
+    event.stopPropagation();
+    
+}
 
 
 

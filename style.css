@@ -3,6 +3,10 @@ body {
 
 }
 
+.d-none{
+    display: none;
+}
+
 header {
     background-color: rgb(249, 62, 50);
     height: 100px;
@@ -89,6 +93,10 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.bg:hover{
+    cursor: pointer;
 }
 
 .poke-card{
