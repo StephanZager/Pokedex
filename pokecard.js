@@ -14,10 +14,13 @@ function openPokemonCard(i)  {
                                     <div>
                                         <img  src="${pokemonImg[i]}" alt="Pokemon Image"><br>
                                     </div>
-                                    </div>    
+                                    <div></div>
+                                    </div>  
+                                    <div>${test1}${test2} </div  
                                 </div>
                             </div>
                             </div>
     `
     pokemonTypeColor(i);
+   await renderPokemonStats(i);
 }

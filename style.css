@@ -43,6 +43,8 @@ header {
 
 .pokecard:hover{
     cursor: pointer;
+    
+    
 }
 
 .pokecard span {
@@ -95,9 +97,7 @@ button {
     align-items: center;
 }
 
-.bg:hover{
-    cursor: pointer;
-}
+
 
 .poke-card{
     background-color: aliceblue;

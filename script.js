@@ -6,6 +6,9 @@ let pokemonImg = [];
 let pokemonType = [];
 let pokemonStats = [];
 
+let test1 = [];
+let test2 = [];
+
 async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=240';
     let reponse = await fetch(url);
@@ -13,7 +16,7 @@ async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne 
 
     pokemon = responseAsJson['results'];
 
-    // console.log(pokemon);
+    console.log(pokemon);
     loadPokemonInformation();
 }
 
@@ -24,7 +27,7 @@ async function loadMorePokemon() {
 
     pokemon = responseAsJson['results'];
 
-    //console.log(pokemon);
+    console.log(pokemon);
     await loadPokemonInformation();
 
 }
@@ -39,12 +42,12 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
-        //console.log(pokemonDetails);
+        console.log(pokemonDetails);
         //  test(i, pokemonImg); 
         //  loadPokemonEvolutionInformation(i);   
     }
     await renderPokemon();
-
+    
 }
 
 async function pokemonTypeColor(i) {
@@ -74,9 +77,28 @@ function pokemonCardWindowClose(){
     document.getElementById('pokemon-card-window-close').classList.add('d-none')
 }
 
-function doNotClose(event){
-    event.stopPropagation();
+async function renderPokemonStats(i){
     
+    for (let j = 0; j < 6; j++) {
+        if (j < pokemonStats[i].length) {
+            const element = pokemonStats[i][j];
+            test1.push(element['base_stat']);
+            test2.push(element['stat']['name']);  
+        }
+    }
+        
+    }
+
+    
+
+    
+
+
+
+
+
+function doNotClose(event){
+    event.stopPropagation();    
 }
 
 

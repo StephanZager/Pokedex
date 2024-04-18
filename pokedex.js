@@ -16,11 +16,12 @@ async function renderPokemon() {
                 </div>
             </div>
         `;
-        
-        pokemonTypeColor(i); 
+
+        pokemonTypeColor(i);
        
+
     }
-     
+
 }
 
 function filterPokemon() {
@@ -33,7 +34,7 @@ function filterPokemon() {
         const element = pokemonName[i];
         if (element.toLowerCase().includes(search)) {
 
-            pokemonSearchResult.innerHTML +=`
+            pokemonSearchResult.innerHTML += `
             <div onclick="openPokemonCard(${i})" class="pokecard" id="pokecard${i}">
             <div>
                 <span class="poke-id">${pokemonId[i]}</span>
@@ -45,7 +46,7 @@ function filterPokemon() {
             </div>
         </div>
     `;
-    pokemonTypeColor(i);
+            pokemonTypeColor(i);
 
         }
 
