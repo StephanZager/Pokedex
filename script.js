@@ -61,6 +61,17 @@ function doNotClose(event) {
     event.stopPropagation();
 }
 
+function nextPokemon(nextpokemon){
+    if (nextpokemon == pokemon.length - 1) {
+        nextpokemon = 0;
+
+    } else {
+        nextpokemon++;
+    }
+    openPokemonCard(nextpokemon);
+}
+
+
 
 
 

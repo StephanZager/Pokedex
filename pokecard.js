@@ -2,7 +2,6 @@ function openPokemonCard(i)  {
     let pokemonCard = document.getElementById('pokemon-card')
     renderPokemonStats(i);
     pokemonTypeColor(i);
-
     pokemonCard.innerHTML = openPokemonCardHTML(i);
     renderChart();
    }
@@ -24,7 +23,8 @@ function openPokemonCard(i)  {
                     <div>
                         <canvas id="myChart"></canvas>
                     </div>                
-                    </div>                                                                          
+                    </div> 
+                    <button onclick="nextPokemon(${i})">näschte</button>                                                                         
                 </div>
             </div>
     </div>
