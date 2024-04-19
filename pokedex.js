@@ -11,14 +11,14 @@ async function renderPokemon() {
                     <span class="poke-name">${pokemonName[i]}</span>
                     <span class="poke-type">${pokemonType[i]}</span>
                 </div>
-                <div>
+                <div class="poke-img">
                     <img class="poke-img" src="${pokemonImg[i]}" alt="Pokemon Image"><br>
                 </div>
             </div>
         `;
 
         pokemonTypeColor(i);
-       
+
 
     }
 
@@ -41,7 +41,7 @@ function filterPokemon() {
                 <span class="poke-name">${pokemonName[i]}</span>
                 <span class="poke-type">${pokemonType[i]}</span>
             </div>
-            <div>
+            <div class="poke-img">
                 <img class="poke-img" src="${pokemonImg[i]}" alt="Pokemon Image"><br>
             </div>
         </div>

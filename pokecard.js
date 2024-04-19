@@ -1,12 +1,12 @@
-function openPokemonCard(i)  {
+function openPokemonCard(i) {
     let pokemonCard = document.getElementById('pokemon-card')
     renderPokemonStats(i);
     pokemonTypeColor(i);
     pokemonCard.innerHTML = openPokemonCardHTML(i);
     renderChart();
-   }
+}
 
-   function openPokemonCardHTML(i){
+function openPokemonCardHTML(i) {
     return `
     <div id="pokemon-card-window-close" onclick="pokemonCardWindowClose()">
         <div class="bg">
@@ -30,4 +30,4 @@ function openPokemonCard(i)  {
             </div>
     </div>
     `;
-   }
+}

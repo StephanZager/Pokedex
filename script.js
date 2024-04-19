@@ -9,7 +9,7 @@ let pokemonBaseStat = [];
 let pokemonStatsName = [];
 
 async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=240';
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     pokemon = responseAsJson['results'];
@@ -18,7 +18,7 @@ async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne 
 }
 
 async function loadMorePokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=40';
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     pokemon = responseAsJson['results'];
