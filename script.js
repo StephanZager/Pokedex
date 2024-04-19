@@ -5,7 +5,6 @@ let pokemonName = [];
 let pokemonImg = [];
 let pokemonType = [];
 let pokemonStats = [];
-
 let pokemonBaseStat = [];
 let pokemonStatsName = [];
 
@@ -13,24 +12,18 @@ async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne 
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=240';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
-
     pokemon = responseAsJson['results'];
-
-    console.log(pokemon);
+    //console.log(pokemon);
     loadPokemonInformation();
-    
 }
 
 async function loadMorePokemon() {
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=40';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
-
     pokemon = responseAsJson['results'];
-
     console.log(pokemon);
-    await loadPokemonInformation();
-
+    loadPokemonInformation();
 }
 
 async function loadPokemonInformation() {
@@ -43,14 +36,41 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
-        console.log(pokemonDetails);
-        //  test(i, pokemonImg); 
-        //  loadPokemonEvolutionInformation(i);   
     }
     await renderPokemon();
-    
-    
 }
+
+function pokemonCardWindowClose() {
+    document.getElementById('pokemon-card-window-close').classList.add('d-none')
+}
+
+async function renderPokemonStats(i) {
+    pokemonBaseStat = [];
+    pokemonStatsName = [];
+
+    for (let j = 0; j < 6; j++) {
+        if (j < pokemonStats[i].length) {
+            const element = pokemonStats[i][j];
+            pokemonBaseStat.push(element['base_stat']);
+            pokemonStatsName.push(element['stat']['name']);
+        }
+    }
+}
+
+function doNotClose(event) {
+    event.stopPropagation();
+}
+
+
+
+
+
+
+
+
+
+
+
 
 async function pokemonTypeColor(i) {
     let pokecard = document.getElementById('pokecard' + i);
@@ -74,61 +94,3 @@ async function pokemonTypeColor(i) {
         pokecard.classList.add('poke-type-poison');
     }
 }
-
-function pokemonCardWindowClose(){
-    document.getElementById('pokemon-card-window-close').classList.add('d-none')
-}
-
-async function renderPokemonStats(i){
-    pokemonBaseStat=[];
-    pokemonStatsName=[];
-    for (let j = 0; j < 6; j++) {
-        if (j < pokemonStats[i].length) {
-            const element = pokemonStats[i][j];
-            pokemonBaseStat.push(element['base_stat']);
-            pokemonStatsName.push(element['stat']['name']);  
-        }
-    }
-    
-       
-    
-        
-    }
-
-    
-
-    
-
-
-
-
-
-function doNotClose(event){
-    event.stopPropagation();    
-}
-
-
-
-
-
-//async function loadPokemonEvolutionInformation(index){
-//    let url = 'https://pokeapi.co/api/v2/evolution-chain/'+ (index + 1);
-//    let response = await fetch(url);
-//    let responseAsJson = await response.json();
-
-//    console.log(responseAsJson);
-//}
-
-//function test(index, img){
-//    let testElement = document.getElementById('test');
-//    testElement.innerHTML += `<div>${index + 1}</div><img src="${img}" alt="Pokemon Image"><br>`;
-//}
-
-
-
-
-
-
-
-
-
