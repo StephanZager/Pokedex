@@ -1,5 +1,7 @@
-function openPokemonCard(i)  {
+async function openPokemonCard(i)  {
     let pokemonCard = document.getElementById('pokemon-card')
+    renderPokemonStats(i);
+    pokemonTypeColor(i);
     
     pokemonCard.innerHTML = `
                             <div id="pokemon-card-window-close" onclick="pokemonCardWindowClose()">
@@ -14,13 +16,19 @@ function openPokemonCard(i)  {
                                     <div>
                                         <img  src="${pokemonImg[i]}" alt="Pokemon Image"><br>
                                     </div>
-                                    <div></div>
+                                    <div>
+                                        <div>
+                                            <canvas id="myChart"></canvas>
+                                        </div>
+                                    </div>
                                     </div>  
-                                    <div>${test1}${test2} </div  
+                                                                         
                                 </div>
                             </div>
                             </div>
     `
-    pokemonTypeColor(i);
-   await renderPokemonStats(i);
+    ;
+
+    renderChart();
+    
 }

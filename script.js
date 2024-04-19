@@ -6,8 +6,8 @@ let pokemonImg = [];
 let pokemonType = [];
 let pokemonStats = [];
 
-let test1 = [];
-let test2 = [];
+let pokemonBaseStat = [];
+let pokemonStatsName = [];
 
 async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=240';
@@ -18,6 +18,7 @@ async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne 
 
     console.log(pokemon);
     loadPokemonInformation();
+    
 }
 
 async function loadMorePokemon() {
@@ -47,6 +48,7 @@ async function loadPokemonInformation() {
         //  loadPokemonEvolutionInformation(i);   
     }
     await renderPokemon();
+    
     
 }
 
@@ -78,14 +80,18 @@ function pokemonCardWindowClose(){
 }
 
 async function renderPokemonStats(i){
-    
+    pokemonBaseStat=[];
+    pokemonStatsName=[];
     for (let j = 0; j < 6; j++) {
         if (j < pokemonStats[i].length) {
             const element = pokemonStats[i][j];
-            test1.push(element['base_stat']);
-            test2.push(element['stat']['name']);  
+            pokemonBaseStat.push(element['base_stat']);
+            pokemonStatsName.push(element['stat']['name']);  
         }
     }
+    
+       
+    
         
     }
 
