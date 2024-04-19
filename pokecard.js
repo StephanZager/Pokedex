@@ -24,6 +24,7 @@ function openPokemonCard(i)  {
                         <canvas id="myChart"></canvas>
                     </div>                
                     </div> 
+                    <button onclick="previousPokemon(${i})">vorherige</button>
                     <button onclick="nextPokemon(${i})">näschte</button>                                                                         
                 </div>
             </div>

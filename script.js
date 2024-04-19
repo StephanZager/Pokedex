@@ -61,14 +61,22 @@ function doNotClose(event) {
     event.stopPropagation();
 }
 
-function nextPokemon(nextpokemon){
+function nextPokemon(nextpokemon) {
     if (nextpokemon == pokemon.length - 1) {
         nextpokemon = 0;
-
     } else {
         nextpokemon++;
     }
     openPokemonCard(nextpokemon);
+}
+
+function previousPokemon(previouspokemon) {
+    if (previouspokemon == 0) {
+        previouspokemon = pokemon.length - 1;
+    } else {
+        previouspokemon--;
+    }
+    openPokemonCard(previouspokemon);
 }
 
 
