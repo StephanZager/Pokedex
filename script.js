@@ -101,24 +101,25 @@ function previousPokemon(previouspokemon) {
 
 
 async function pokemonTypeColor(i) {
-    let pokecard = document.getElementById('pokecard' + i);
-
+    let pokecards = document.getElementById('pokecard' + i);
+ 
     if (pokemonType[i].includes('grass')) {
-        pokecard.classList.add('poke-type-grass');
+        pokecards.classList.add('poke-type-grass');
+      
     }
     if (pokemonType[i].includes('fire')) {
-        pokecard.classList.add('poke-type-fire');
+        pokecards.classList.add('poke-type-fire');
     }
     if (pokemonType[i].includes('water')) {
-        pokecard.classList.add('poke-type-water');
+        pokecards.classList.add('poke-type-water');
     }
     if (pokemonType[i].includes('bug')) {
-        pokecard.classList.add('poke-type-bug');
+        pokecards.classList.add('poke-type-bug');
     }
     if (pokemonType[i].includes('normal')) {
-        pokecard.classList.add('poke-type-normal');
+        pokecards.classList.add('poke-type-normal');
     }
     if (pokemonType[i].includes('poison')) {
-        pokecard.classList.add('poke-type-poison');
+        pokecards.classList.add('poke-type-poison');
     }
 }
