@@ -18,17 +18,17 @@ async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne 
 }
 
 async function loadMorePokemon() {
-    let test = 20;
+    let test = 120;
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + test;
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     let newPokemon = responseAsJson['results'];
-    pokemon.push(newPokemon);
-    //for (let i = 0; i < newPokemon.length; i++) {
-    //    let newLoadPokemon = newPokemon[i];
-    //    pokemon.push(newLoadPokemon);
+    
+    for (let i = 0; i < newPokemon.length; i++) {
+       let newLoadPokemon = newPokemon[i];
+        pokemon.push(newLoadPokemon);
 
-    //}
+    }
     console.log(newPokemon);
     loadPokemonInformation();
 }
