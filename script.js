@@ -8,25 +8,33 @@ let pokemonStats = [];
 let pokemonBaseStat = [];
 let pokemonStatsName = [];
 
+
 async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     pokemon = responseAsJson['results'];
-    //console.log(pokemon);
     loadPokemonInformation();
 }
 
 async function loadMorePokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=20';
+    let test = 20;
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + test;
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
-    pokemon = responseAsJson['results'];
-    console.log(pokemon);
+    let newPokemon = responseAsJson['results'];
+    pokemon.push(newPokemon);
+    //for (let i = 0; i < newPokemon.length; i++) {
+    //    let newLoadPokemon = newPokemon[i];
+    //    pokemon.push(newLoadPokemon);
+
+    //}
+    console.log(newPokemon);
     loadPokemonInformation();
 }
 
 async function loadPokemonInformation() {
+
     for (let i = 0; i < pokemon.length; i++) {
         let url = 'https://pokeapi.co/api/v2/pokemon/' + (i + 1);
         let response = await fetch(url);
@@ -38,6 +46,7 @@ async function loadPokemonInformation() {
         pokemonStats.push(pokemonDetails['stats']);
     }
     await renderPokemon();
+    console.log(pokemonDetails);
 }
 
 function pokemonCardWindowClose() {

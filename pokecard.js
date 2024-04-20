@@ -13,9 +13,9 @@ function openPokemonCardHTML(i) {
             <div class="poke-card" id="pokecard" onclick="doNotClose(event)">
                 <div>
                     <div>
-                        <span>${pokemonId[i]}</span>
-                        <span>${pokemonName[i]}</span>
-                        <span>${pokemonType[i]}</span>
+                        <span class="pokemon-id">${pokemonId[i]}</span>
+                        <span class="pokemon-name">${pokemonName[i]}</span>
+                        <span class="pokemon-type">${pokemonType[i]}</span>
                     </div>
                     <div>
                         <img  src="${pokemonImg[i]}" alt="Pokemon Image"><br>

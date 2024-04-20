@@ -1,14 +1,13 @@
 async function renderPokemon() {
-
     let pokemonsohw = document.getElementById('pokemonsohw');
     pokemonsohw.innerHTML = '';
 
     for (let i = 0; i < pokemon.length; i++) {
         pokemonsohw.innerHTML += `
             <div onclick="openPokemonCard(${i})" class="pokecard" id="pokecard${i}">
-                <div>
-                    <span class="poke-id">${pokemonId[i]}</span>
-                    <span class="poke-name">${pokemonName[i]}</span>
+                <div class="pokemon-info">
+                    <span class="poke-id">#${pokemonId[i]}</span>
+                    <span class="poke-name"><b>${pokemonName[i]}</b></span>
                     <span class="poke-type">${pokemonType[i]}</span>
                 </div>
                 <div class="poke-img">
@@ -16,12 +15,8 @@ async function renderPokemon() {
                 </div>
             </div>
         `;
-
         pokemonTypeColor(i);
-
-
     }
-
 }
 
 function filterPokemon() {
@@ -36,15 +31,16 @@ function filterPokemon() {
 
             pokemonSearchResult.innerHTML += `
             <div onclick="openPokemonCard(${i})" class="pokecard" id="pokecard${i}">
-            <div>
-                <span class="poke-id">${pokemonId[i]}</span>
-                <span class="poke-name">${pokemonName[i]}</span>
-                <span class="poke-type">${pokemonType[i]}</span>
+                <div class="pokemon-info">
+                    <span class="poke-id">#${pokemonId[i]}</span>
+                    <span class="poke-name"><b>${pokemonName[i]}</b></span>
+                    <span class="poke-type">${pokemonType[i]}</span>
+                </div>
+                <div class="poke-img">
+                    <img class="poke-img" src="${pokemonImg[i]}" alt="Pokemon Image"><br>
+                </div>
             </div>
-            <div class="poke-img">
-                <img class="poke-img" src="${pokemonImg[i]}" alt="Pokemon Image"><br>
-            </div>
-        </div>
+        
     `;
             pokemonTypeColor(i);
 

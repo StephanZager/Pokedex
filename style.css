@@ -1,29 +1,35 @@
 body {
     margin: 0 auto;
-
+    background-image: url('/img/DALL·E\ 2024-03-23\ 19.48.53\ -\ Design\ an\ engaging\ background\ for\ a\ Pokédex\ website\,\ incorporating\ elements\ of\ the\ Pokémon\ universe.\ The\ background\ should\ feature\ subtle\ patterns\ or\ .webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: "Jersey 15", sans-serif;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
 header {
     background-color: rgb(249, 62, 50);
-    height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    height: 150px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .poke-img {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    bottom: 5px;
-    max-width: 200px;
-    right: 5px;
-
+    width: 200px;  
+    height: 200px;
+    
 }
 
 #pokemonsohw {
@@ -41,20 +47,41 @@ header {
     margin: 7px;
     box-sizing: border-box;
     position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
 }
 
-.pokecard:hover{
+.pokecard:hover {
     cursor: pointer;
-    
-    
-}
 
-.pokecard span {
-    font-size: 12px;
 }
 
 .poke-id {
-    font-size: 13px;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 7px;
+    color: rgb(74, 72, 72);
+}
+
+.poke-name {
+    font-size: 40px;
+    color: rgb(56, 49, 49);
+}
+
+.poke-type {
+    font-size: 30px;
+}
+
+.pokemon-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
 }
 
@@ -63,30 +90,30 @@ button {
 }
 
 .poke-type-grass {
-    background-color: green;
+    background-color: lightgreen;
 }
 
 .poke-type-fire {
-    background-color: red;
+    background-color: lightcoral;
 }
 
 .poke-type-water {
-    background-color: blue;
+    background-color: lightblue;
 }
 
 .poke-type-bug {
-    background-color: rgb(79, 220, 79);
+    background-color: limegreen;
 }
 
 .poke-type-normal {
-    background-color: burlywood;
+    background-color: lightsalmon;
 }
 
 .poke-type-poison {
     background-color: rgb(132, 28, 142)
 }
 
-.bg{
+.bg {
     background-color: rgba(240, 248, 255, 0.378);
     z-index: 999;
     position: fixed;
@@ -101,7 +128,7 @@ button {
 
 
 
-.poke-card{
+.poke-card {
     background-color: aliceblue;
     width: 400px;
     height: 700px;
