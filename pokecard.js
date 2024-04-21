@@ -3,12 +3,11 @@ async function openPokemonCard(i) {
     renderPokemonStats(i);
     pokemonCard.innerHTML = openPokemonCardHTML(i);
     await pokemonTypeColor(i);
-    renderChart(); 
-      
+
 }
 
 function openPokemonCardHTML(i) {
-    
+
     return `
     <div id="pokemon-card-window-close" onclick="pokemonCardWindowClose()">
         <div class="bg">
@@ -24,15 +23,15 @@ function openPokemonCardHTML(i) {
                     </div> 
                     <div class="menu-strip">
                         <p>INFO</p>
-                        <p>STATS</p>
+                        <p onclick="statsMyChart()">STATS</p>
                     </div>
 
                     <img class="right-arrow" src="/img/rechter-pfeil (2).png" onclick="nextPokemon(${i})">
                     <img class="left-arrow" src="/img/linker pfeil.png" onclick="previousPokemon(${i})">
                 </div>
                 <div> 
-                    <div class="my-chart">                      
-                         <canvas id="myChart"></canvas>                                                       
+                    <div id="stats-chart" >                      
+                                                                          
                     </div>
                 </div>    
             </div>
@@ -42,7 +41,7 @@ function openPokemonCardHTML(i) {
 
 
 
-//<div> 
+//<div>
 //   <button onclick="previousPokemon(${i})">vorherige</button>
-//                    <button onclick="nextPokemon(${i})">näschte</button>                                                                         
+//                    <button onclick="nextPokemon(${i})">näschte</button>
 //                </div>

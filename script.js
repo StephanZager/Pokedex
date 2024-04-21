@@ -7,7 +7,7 @@ let pokemonType = [];
 let pokemonStats = [];
 let pokemonBaseStat = [];
 let pokemonStatsName = [];
-
+let test = 20;
 
 async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
@@ -18,17 +18,18 @@ async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne 
 }
 
 async function loadMorePokemon() {
-    let test = 120;
+
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + test;
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     let newPokemon = responseAsJson['results'];
-    
-    for (let i = 0; i < newPokemon.length; i++) {
-       let newLoadPokemon = newPokemon[i];
-        pokemon.push(newLoadPokemon);
+    pokemon = pokemon.concat(newPokemon);
+    test += 20;
+    //for (let i = 0; i < newPokemon.length; i++) {
+    //   let newLoadPokemon = newPokemon[i];
+    //pokemon.push(newLoadPokemon);
 
-    }
+    //}
     console.log(newPokemon);
     loadPokemonInformation();
 }
@@ -88,6 +89,15 @@ function previousPokemon(previouspokemon) {
     openPokemonCard(previouspokemon);
 }
 
+function statsMyChart() {
+    document.getElementById('stats-chart').innerHTML += `<div>                      
+                                                        <canvas class="my-chart" id="myChart"></canvas>
+                                                        </div>                                                     
+                                                            `;
+
+    renderChart();
+}
+
 
 
 
@@ -102,10 +112,10 @@ function previousPokemon(previouspokemon) {
 
 async function pokemonTypeColor(i) {
     let pokecards = document.getElementById('pokecard' + i);
- 
+
     if (pokemonType[i].includes('grass')) {
         pokecards.classList.add('poke-type-grass');
-      
+
     }
     if (pokemonType[i].includes('fire')) {
         pokecards.classList.add('poke-type-fire');

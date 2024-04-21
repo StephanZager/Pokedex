@@ -1,7 +1,7 @@
 async function renderPokemon() {
     let pokemonsohw = document.getElementById('pokemonsohw');
     pokemonsohw.innerHTML = '';
-
+    
     for (let i = 0; i < pokemon.length; i++) {
         pokemonsohw.innerHTML += `
             <div onclick="openPokemonCard(${i})" class="pokecard" id="pokecard${i}">
