@@ -1,11 +1,7 @@
-
-
 async function renderPokemon() {
     let pokemonsohw = document.getElementById('pokemonsohw');
-    
-    
-    
-        for (let i = offset; i < pokemon.length; i++) {
+
+    for (let i = offset; i < pokemon.length; i++) {
         pokemonsohw.innerHTML += `
             <div onclick="openPokemonCard(${i})" class="pokecard" id="pokecard${i}">
                 <div class="pokemon-info">
@@ -29,11 +25,12 @@ function filterPokemon() {
     let pokemonSearchResult = document.getElementById('pokemonsohw');
     pokemonSearchResult.innerHTML = '';
 
-    for (let i = 0; i < pokemonName.length; i++) {
-        const element = pokemonName[i];
-        if (element.toLowerCase().includes(search)) {
+    if (search.length > 2) {
+        for (let i = 0; i < pokemonName.length; i++) {
+            const element = pokemonName[i];
+            if (element.toLowerCase().includes(search)) {
 
-            pokemonSearchResult.innerHTML += `
+                pokemonSearchResult.innerHTML += `
             <div onclick="openPokemonCard(${i})" class="pokecard" id="pokecard${i}">
                 <div class="pokemon-info">
                     <span class="poke-id">#${pokemonId[i]}</span>
@@ -46,12 +43,19 @@ function filterPokemon() {
             </div>
         
     `;
-            pokemonTypeColor(i);
+                pokemonTypeColor(i);
+
+            }
 
         }
+    } else {
 
+        renderPokemon();
+        
     }
 
 }
+
+
 
 
