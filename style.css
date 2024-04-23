@@ -163,11 +163,12 @@ button {
     padding: 10px;
 }
 
-.menu-strip :hover {
+.menu-strip :hover{
     border-radius: 20px;
     background-color: lightgray;
     cursor: pointer;
 }
+
 
 .pokeimg{
     display: flex;

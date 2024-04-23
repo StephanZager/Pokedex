@@ -1,4 +1,4 @@
-let pokemon;
+let pokemon= [];
 let pokemonDetails;
 let pokemonId = [];
 let pokemonName = [];
@@ -7,36 +7,43 @@ let pokemonType = [];
 let pokemonStats = [];
 let pokemonBaseStat = [];
 let pokemonStatsName = [];
-let test = 20;
+let offset = 0;
 
 async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
-    let reponse = await fetch(url);
-    let responseAsJson = await reponse.json();
+    let response = await fetch(url);
+    let responseAsJson = await response.json();
     pokemon = responseAsJson['results'];
-    loadPokemonInformation();
+    console.log(pokemon)
+
+    await loadPokemonInformation();
+
 }
 
 async function loadMorePokemon() {
-
-    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + test;
+    
+    let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + offset;
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     let newPokemon = responseAsJson['results'];
-    pokemon = pokemon.concat(newPokemon);
-    test += 20;
-    //for (let i = 0; i < newPokemon.length; i++) {
-    //   let newLoadPokemon = newPokemon[i];
-    //pokemon.push(newLoadPokemon);
+    
+    for (let i = 0; i < newPokemon.length; i++) {
+        let newLoadPokemon = newPokemon[i];
+        pokemon.push(newLoadPokemon);
 
-    //}
+    }
     console.log(newPokemon);
-    loadPokemonInformation();
+    await loadPokemonInformation();
+}
+
+function getPokemonIndex(){
+    let index = pokemon.indexOf(pokemon)
+    return index
 }
 
 async function loadPokemonInformation() {
 
-    for (let i = 0; i < pokemon.length; i++) {
+    for (let i = offset; i < pokemon.length; i++) {
         let url = 'https://pokeapi.co/api/v2/pokemon/' + (i + 1);
         let response = await fetch(url);
         pokemonDetails = await response.json();
@@ -45,6 +52,7 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
+
     }
     await renderPokemon();
     console.log(pokemonDetails);
