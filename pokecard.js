@@ -1,10 +1,9 @@
 async function openPokemonCard(i) {
-    let pokemonCard = document.getElementById('pokemon-card')
-    
+    let pokemonCard = document.getElementById('pokemon-card');    
     renderPokemonStats(i);
+    
     pokemonCard.innerHTML = openPokemonCardHTML(i);
-    
-    
+       
 }
 
 function openPokemonCardHTML(i) {

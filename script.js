@@ -1,4 +1,4 @@
-let pokemon= [];
+let pokemon = [];
 let pokemonDetails;
 let pokemonId = [];
 let pokemonName = [];
@@ -21,28 +21,20 @@ async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne 
 }
 
 async function loadMorePokemon() {
-    
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + offset;
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     let newPokemon = responseAsJson['results'];
-    
-    for (let i = 0; i < newPokemon.length; i++) {
-        let newLoadPokemon = newPokemon[i];
-        pokemon.push(newLoadPokemon);
-
+    if (offset < 140) {
+        for (let i = 0; i < newPokemon.length; i++) {
+            let newLoadPokemon = newPokemon[i];
+            pokemon.push(newLoadPokemon);
+        }        
+        await loadPokemonInformation();
     }
-    console.log(newPokemon);
-    await loadPokemonInformation();
-}
-
-function getPokemonIndex(){
-    let index = pokemon.indexOf(pokemon)
-    return index
 }
 
 async function loadPokemonInformation() {
-
     for (let i = offset; i < pokemon.length; i++) {
         let url = 'https://pokeapi.co/api/v2/pokemon/' + (i + 1);
         let response = await fetch(url);
@@ -52,7 +44,6 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
-
     }
     await renderPokemon();
     console.log(pokemonDetails);
@@ -65,7 +56,7 @@ function pokemonCardWindowClose() {
 async function renderPokemonStats(i) {
     pokemonBaseStat = [];
     pokemonStatsName = [];
-
+    
     for (let j = 0; j < 6; j++) {
         if (j < pokemonStats[i].length) {
             const element = pokemonStats[i][j];
