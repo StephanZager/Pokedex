@@ -99,27 +99,27 @@ button {
     background-color: rgb(249, 62, 50);
 }
 
-.poke-type-grass {
+.grass {
     background-color: lightgreen;
 }
 
-.poke-type-fire {
+.fire {
     background-color: lightcoral;
 }
 
-.poke-type-water {
+.water {
     background-color: lightblue;
 }
 
-.poke-type-bug {
+.bug {
     background-color: limegreen;
 }
 
-.poke-type-normal {
+.normal {
     background-color: lightsalmon;
 }
 
-.poke-type-poison {
+.poison {
     background-color: rgb(132, 28, 142)
 }
 
@@ -211,4 +211,17 @@ button {
     background-color: lightgreen;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     
+}
+
+.border{
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    
+}
+
+.info-section{
+    position: relative;
+    width: 100%;
+    height: 100%;
+   
 }

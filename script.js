@@ -56,7 +56,7 @@ function pokemonCardWindowClose() {
 async function renderPokemonStats(i) {
     pokemonBaseStat = [];
     pokemonStatsName = [];
-    
+
     for (let j = 0; j < 6; j++) {
         if (j < pokemonStats[i].length) {
             const element = pokemonStats[i][j];
@@ -95,40 +95,4 @@ function statsMyChart() {
                                                             `;
 
     renderChart();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-async function pokemonTypeColor(i) {
-    let pokecards = document.getElementById('pokecard' + i);
-
-    if (pokemonType[i].includes('grass')) {
-        pokecards.classList.add('poke-type-grass');
-
-    }
-    if (pokemonType[i].includes('fire')) {
-        pokecards.classList.add('poke-type-fire');
-    }
-    if (pokemonType[i].includes('water')) {
-        pokecards.classList.add('poke-type-water');
-    }
-    if (pokemonType[i].includes('bug')) {
-        pokecards.classList.add('poke-type-bug');
-    }
-    if (pokemonType[i].includes('normal')) {
-        pokecards.classList.add('poke-type-normal');
-    }
-    if (pokemonType[i].includes('poison')) {
-        pokecards.classList.add('poke-type-poison');
-    }
 }
