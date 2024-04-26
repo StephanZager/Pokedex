@@ -18,10 +18,10 @@ function openPokemonCardHTML(i) {
                         <p  onclick="pokemonInfoCard()">INFO</p>
                         <p onclick="statsMyChart()">STATS</p>
                     </div>
-
+                    
                     <img class="right-arrow" src="img/rechter-pfeil (2).png" onclick="nextPokemon(${i})">
                     <img class="left-arrow" src="img/linker pfeil.png" onclick="previousPokemon(${i})">
-                    <span class="poke-id">#${pokemonId[i]}</span>
+                    <img class="pokecard-x-button" src="img/icons8-x-100.png" onclick="pokemonCardWindowClose()">
                 </div>
                 <div class="info-section">                     
                     <div id="pokemon-info-section">

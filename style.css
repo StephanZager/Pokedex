@@ -197,13 +197,13 @@ button {
 .menu-strip p{
     text-decoration: none;
     font-size: 25px;
-    color: rgba(58, 56, 56, 0.772);
+    color: rgba(50, 49, 49, 0.945);
     padding: 10px;
 }
 
 .menu-strip :hover{
     border-radius: 20px;
-    background-color: lightgray;
+    background-color: rgba(0, 0, 0, 0.149);
     cursor: pointer;
 }
 
@@ -239,10 +239,14 @@ button {
 .right-arrow:hover{
     cursor: pointer;
     
+    background-color: rgba(0, 0, 0, 0.149);
+    border-radius: 100%;
 }
 
 .left-arrow:hover{
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.149);
+    border-radius: 100%;
 }
 
 .shadow-background{
@@ -284,6 +288,22 @@ button {
     margin-block-end: 0em;
     color: rgba(72, 72, 72, 0.337);
     font-family: "Roboto", sans-serif;
+}
+
+.pokecard-x-button{
+    
+    position: absolute;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 35px;
+    padding: 5px;
+}
+
+.pokecard-x-button:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.149);
+    border-radius: 100%;
 }
 
 
