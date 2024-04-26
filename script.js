@@ -12,7 +12,7 @@ let offset = 0;
 
 async function init(){
     await loadPokemon();
-    document.getElementById('loadingOverlay').style.display = 'none';
+    loadingOverlay();
 }
 
 async function loadPokemon() {
@@ -24,7 +24,7 @@ async function loadPokemon() {
 }
 
 async function loadMorePokemon() {
-    document.getElementById('loadingOverlay').style.display = 'flex';
+    loadingOverlayShow();
     offset += 20;
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + offset;
     let reponse = await fetch(url);
@@ -38,7 +38,7 @@ async function loadMorePokemon() {
         }
         await loadPokemonInformation();
     }
-    document.getElementById('loadingOverlay').style.display = 'none';
+    loadingOverlay();
 }
 
 async function loadPokemonInformation() {
@@ -106,4 +106,14 @@ function statsMyChart() {
 function pokemonInfoCard() {
     document.getElementById('pokemon-info-section').classList.remove('d-none');
     document.getElementById('stats-chart').classList.add('d-none');
+}
+
+function loadingOverlay(){        
+    document.getElementById('loading-overlay').style.display = 'none';
+}
+
+async function loadingOverlayShow() {
+   
+        document.getElementById('loading-overlay').style.display = 'flex';
+    
 }
