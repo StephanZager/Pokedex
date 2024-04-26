@@ -62,9 +62,9 @@ async function renderPokemonStats(i) {
 
     for (let j = 0; j < 6; j++) {
         if (j < pokemonStats[i].length) {
-            const element = pokemonStats[i][j];
-            pokemonBaseStat.push(element['base_stat']);
-            pokemonStatsName.push(element['stat']['name']);
+            const stats = pokemonStats[i][j];
+            pokemonBaseStat.push(stats['base_stat']);
+            pokemonStatsName.push(stats['stat']['name']);
         }
     }
 }
