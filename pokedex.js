@@ -11,20 +11,20 @@ function filterPokemon() {
     let search = document.getElementById('search').value;
     search = search.toLowerCase();
     let pokemonSearchResult = document.getElementById('pokemonsohw');
-    pokemonSearchResult.innerHTML = '';
-
+    
     if (search.length > 2) {
+        pokemonSearchResult.innerHTML = '';
         for (let i = 0; i < pokemonName.length; i++) {
             const element = pokemonName[i];
             if (element.toLowerCase().includes(search)) {
-                pokemonSearchResult.innerHTML += createPokemonCardHTML(i);
-                pokemonTypeColor(i);
+                pokemonSearchResult.innerHTML += createPokemonCardHTML(i);                
             }
 
         }
     } else {
-        console.log('zu wenig')
+        console.log('zu wenig')        
         renderPokemon();
+        
     }
 
 }

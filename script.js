@@ -7,6 +7,8 @@ let pokemonType = [];
 let pokemonStats = [];
 let pokemonBaseStat = [];
 let pokemonStatsName = [];
+let pokemonWeight = [];
+
 let offset = 0;
 
 async function loadPokemon() {
@@ -44,6 +46,7 @@ async function loadPokemonInformation() {
         pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
         pokemonType.push(pokemonDetails['types']['0']['type']['name']);
         pokemonStats.push(pokemonDetails['stats']);
+        pokemonWeight.push(pokemonDetails['weight']);
     }
     await renderPokemon();
     console.log(pokemonDetails);

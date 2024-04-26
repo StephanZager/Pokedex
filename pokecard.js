@@ -25,9 +25,11 @@ function openPokemonCardHTML(i) {
                 </div>
                 <div class="info-section">                     
                     <div id="pokemon-info-section">
-                        <span class="pokemon-id">#${pokemonId[i]}</span>
-                        <span class="pokemon-name">${pokemonName[i]}</span>
-                        <span class="pokemon-type">${pokemonType[i]}</span>                               
+                        <p><b>ID:</b>&nbsp&nbsp#${pokemonId[i]}</p>
+                        <p><b>Name:</b>&nbsp&nbsp${pokemonName[i]}</p>
+                        <p><b>Type:</b>&nbsp&nbsp${pokemonType[i]}</p>
+                        <p><b>Weight:</b>&nbsp&nbsp${pokemonWeight[i]}</p>
+                                                    
                     </div>
                     <div id="stats-chart" >                             
                     </div>

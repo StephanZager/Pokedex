@@ -20,7 +20,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin-bottom: 30px;
+}
+
+h1{
+    font-size: 70px;
+    color: rgb(255, 204, 1);
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 .poke-img {
@@ -250,8 +258,30 @@ button {
 }
 
 .info-section{
-    position: relative;
-    width: 100%;
-    height: 100%;
    
+    width: 100%;
+    
+   
+}
+
+#search{
+    height: 20px;
+    
+    
+}
+
+#pokemon-info-section{
+    margin-top: 40px;
+    font-size: 35px;
+    padding: 10px;
+   
+    
+}
+
+#pokemon-info-section p{
+    
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    color: rgb(72, 72, 72);
+    font-family: "Roboto", sans-serif;
 }
