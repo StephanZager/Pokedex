@@ -4,8 +4,46 @@ async function openPokemonCard(i) {
     pokemonCard.innerHTML = openPokemonCardHTML(i);
 }
 
-function openPokemonCardHTML(i) {
+function doNotClose(event) {
+    event.stopPropagation();
+}
 
+function nextPokemon(nextpokemon) {
+    if (nextpokemon == pokemon.length - 1) {
+        nextpokemon = 0;
+    } else {
+        nextpokemon++;
+    }
+    openPokemonCard(nextpokemon);
+}
+
+function previousPokemon(previouspokemon) {
+    if (previouspokemon == 0) {
+        previouspokemon = pokemon.length - 1;
+    } else {
+        previouspokemon--;
+    }
+    openPokemonCard(previouspokemon);
+}
+
+function statsMyChart() {
+    document.getElementById('pokemon-info-section').classList.add('d-none');
+    let statsChart = document.getElementById('stats-chart');
+    statsChart.classList.remove('d-none')
+    statsChart.innerHTML += statsChartHTML();
+    renderChart();
+}
+
+function pokemonInfoCard() {
+    document.getElementById('pokemon-info-section').classList.remove('d-none');
+    document.getElementById('stats-chart').classList.add('d-none');
+}
+
+function pokemonCardWindowClose() {
+    document.getElementById('pokemon-card-window-close').classList.add('d-none')
+}
+
+function openPokemonCardHTML(i) {
     return `
     <div id="pokemon-card-window-close" onclick="pokemonCardWindowClose()">
         <div class="bg">
@@ -17,8 +55,7 @@ function openPokemonCardHTML(i) {
                     <div class="menu-strip">
                         <p  onclick="pokemonInfoCard()">INFO</p>
                         <p onclick="statsMyChart()">STATS</p>
-                    </div>
-                    
+                    </div>                    
                     <img class="right-arrow" src="img/rechter-pfeil (2).png" onclick="nextPokemon(${i})">
                     <img class="left-arrow" src="img/linker pfeil.png" onclick="previousPokemon(${i})">
                     <img class="pokecard-x-button" src="img/icons8-x-100.png" onclick="pokemonCardWindowClose()">
@@ -31,18 +68,12 @@ function openPokemonCardHTML(i) {
                         <p><b>Weight:</b>&nbsp&nbsp${pokemonWeight[i]}</p>
                                                     
                     </div>
-                    <div id="stats-chart" >                             
-                    </div>
-                </div>    
-            </div>
+                <div id="stats-chart" >                             
+                </div>
+            </div>    
+        </div>
     </div>
     `;
 
 }
 
-
-
-//<div>
-//   <button onclick="previousPokemon(${i})">vorherige</button>
-//                    <button onclick="nextPokemon(${i})">näschte</button>
-//                </div>

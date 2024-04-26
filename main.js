@@ -10,7 +10,7 @@ let pokemonStatsName = [];
 let pokemonWeight = [];
 let offset = 0;
 
-async function init(){
+async function init() {
     await loadPokemon();
     loadingOverlay();
 }
@@ -56,10 +56,6 @@ async function loadPokemonInformation() {
     await renderPokemon();
 }
 
-function pokemonCardWindowClose() {
-    document.getElementById('pokemon-card-window-close').classList.add('d-none')
-}
-
 async function renderPokemonStats(i) {
     pokemonBaseStat = [];
     pokemonStatsName = [];
@@ -73,47 +69,18 @@ async function renderPokemonStats(i) {
     }
 }
 
-function doNotClose(event) {
-    event.stopPropagation();
-}
-
-function nextPokemon(nextpokemon) {
-    if (nextpokemon == pokemon.length - 1) {
-        nextpokemon = 0;
-    } else {
-        nextpokemon++;
-    }
-    openPokemonCard(nextpokemon);
-}
-
-function previousPokemon(previouspokemon) {
-    if (previouspokemon == 0) {
-        previouspokemon = pokemon.length - 1;
-    } else {
-        previouspokemon--;
-    }
-    openPokemonCard(previouspokemon);
-}
-
-function statsMyChart() {
-    document.getElementById('pokemon-info-section').classList.add('d-none');
-    let statsChart = document.getElementById('stats-chart');
-    statsChart.classList.remove('d-none')
-    statsChart.innerHTML += statsChartHTML();
-    renderChart();
-}
-
-function pokemonInfoCard() {
-    document.getElementById('pokemon-info-section').classList.remove('d-none');
-    document.getElementById('stats-chart').classList.add('d-none');
-}
-
-function loadingOverlay(){        
+function loadingOverlay() {
     document.getElementById('loading-overlay').style.display = 'none';
 }
 
 async function loadingOverlayShow() {
-   
-        document.getElementById('loading-overlay').style.display = 'flex';
-    
+    document.getElementById('loading-overlay').style.display = 'flex';
+}
+
+function showNextPokemonLoadButton() {
+    document.getElementById('next-pokemon-btn').style.display = 'flex';
+}
+
+function returnNextPokemonLoadButton() {
+    document.getElementById('next-pokemon-btn').style.display = 'none';
 }

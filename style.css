@@ -201,6 +201,10 @@ button {
     padding: 10px;
 }
 
+.menu-strip p:active{
+    transform: scale(0.9);
+}
+
 .menu-strip :hover{
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.149);
@@ -227,6 +231,7 @@ button {
     position: absolute;
     top: 25%;
     right: 10px;
+    transition: transform 0.2s;
 }
 
 .left-arrow{
@@ -234,19 +239,26 @@ button {
     position: absolute;
     top: 25%;
     left: 10px;
+    transition: transform 0.2s;
+}
+
+.right-arrow:active{
+    transform: scale(0.9);
 }
 
 .right-arrow:hover{
     cursor: pointer;
     
-    background-color: rgba(0, 0, 0, 0.149);
-    border-radius: 100%;
+    
+}
+
+.left-arrow:active{
+    transform: scale(0.9);
 }
 
 .left-arrow:hover{
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.149);
-    border-radius: 100%;
+    
 }
 
 .shadow-background{
@@ -291,7 +303,7 @@ button {
 }
 
 .pokecard-x-button{
-    
+    transition: transform 0.2s;
     position: absolute;
     position: absolute;
     top: 7px;
@@ -300,10 +312,28 @@ button {
     padding: 5px;
 }
 
+.pokecard-x-button:active{
+    transform: scale(0.9);
+}
+
 .pokecard-x-button:hover{
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.149);
-    border-radius: 100%;
+   
+}
+
+.next-pokemon-button{
+    display: flex;
+    justify-content: center;
+}
+
+.next-pokemon-btn{
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    height: 40px;
+    width: 200px;
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 
