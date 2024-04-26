@@ -5,7 +5,7 @@ async function openPokemonCard(i) {
 }
 
 function openPokemonCardHTML(i) {
-    
+        
     return `
     <div id="pokemon-card-window-close" onclick="pokemonCardWindowClose()">
         <div class="bg">

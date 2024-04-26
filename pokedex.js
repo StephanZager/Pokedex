@@ -4,7 +4,6 @@ async function renderPokemon() {
     for (let i = offset; i < pokemon.length; i++) {
         pokemonsohw.innerHTML += createPokemonCardHTML(i);        
     }
-    offset += 20;
 }
 
 function filterPokemon() {
@@ -14,15 +13,16 @@ function filterPokemon() {
     
     if (search.length > 2) {
         pokemonSearchResult.innerHTML = '';
+        
         for (let i = 0; i < pokemonName.length; i++) {
             const element = pokemonName[i];
             if (element.toLowerCase().includes(search)) {
-                pokemonSearchResult.innerHTML += createPokemonCardHTML(i);                
+                pokemonSearchResult.innerHTML += createPokemonCardHTML(i);                                
             }
-
         }
     } else {
-        console.log('zu wenig')        
+        pokemonSearchResult.innerHTML = '';          
+        offset = 0;
         renderPokemon();
         
     }

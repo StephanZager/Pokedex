@@ -24,7 +24,7 @@ async function renderChart() {
         data: {
             labels: pokemonStatsName,
             datasets: [{
-                label: '# of Votes',
+                label: 'Stats',
                 data: pokemonBaseStat,
                 backgroundColor: myChartBackgroundColor,
                 borderColor: myChartBorderColor,

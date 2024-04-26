@@ -19,10 +19,11 @@ async function loadPokemon() {
     console.log(pokemon)
 
     await loadPokemonInformation();
-
+    
 }
 
 async function loadMorePokemon() {
+    offset += 20;
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + offset;
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
@@ -34,6 +35,7 @@ async function loadMorePokemon() {
         }
         await loadPokemonInformation();
     }
+    
 }
 
 async function loadPokemonInformation() {
@@ -50,6 +52,7 @@ async function loadPokemonInformation() {
     }
     await renderPokemon();
     console.log(pokemonDetails);
+    
 }
 
 function pokemonCardWindowClose() {
