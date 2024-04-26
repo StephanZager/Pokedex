@@ -1,11 +1,11 @@
 async function openPokemonCard(i) {
-    let pokemonCard = document.getElementById('pokemon-card');    
-    renderPokemonStats(i);    
-    pokemonCard.innerHTML = openPokemonCardHTML(i);       
+    let pokemonCard = document.getElementById('pokemon-card');
+    renderPokemonStats(i);
+    pokemonCard.innerHTML = openPokemonCardHTML(i);
 }
 
 function openPokemonCardHTML(i) {
-        
+
     return `
     <div id="pokemon-card-window-close" onclick="pokemonCardWindowClose()">
         <div class="bg">
@@ -19,8 +19,8 @@ function openPokemonCardHTML(i) {
                         <p onclick="statsMyChart()">STATS</p>
                     </div>
 
-                    <img class="right-arrow" src="/img/rechter-pfeil (2).png" onclick="nextPokemon(${i})">
-                    <img class="left-arrow" src="/img/linker pfeil.png" onclick="previousPokemon(${i})">
+                    <img class="right-arrow" src="img/rechter-pfeil (2).png" onclick="nextPokemon(${i})">
+                    <img class="left-arrow" src="img/linker pfeil.png" onclick="previousPokemon(${i})">
                     <span class="poke-id">#${pokemonId[i]}</span>
                 </div>
                 <div class="info-section">                     
@@ -37,7 +37,7 @@ function openPokemonCardHTML(i) {
             </div>
     </div>
     `;
-    
+
 }
 
 

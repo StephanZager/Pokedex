@@ -40,3 +40,12 @@ async function renderChart() {
         }
     });
 }
+
+
+function statsChartHTML() {
+    return`
+    <div>                      
+        <canvas class="my-chart" id="myChart"></canvas>
+    </div>                                                     
+    `;
+}

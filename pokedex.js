@@ -2,7 +2,7 @@ async function renderPokemon() {
     let pokemonsohw = document.getElementById('pokemonsohw');
 
     for (let i = offset; i < pokemon.length; i++) {
-        pokemonsohw.innerHTML += createPokemonCardHTML(i);        
+        pokemonsohw.innerHTML += createPokemonCardHTML(i);
     }
 }
 
@@ -10,21 +10,21 @@ function filterPokemon() {
     let search = document.getElementById('search').value;
     search = search.toLowerCase();
     let pokemonSearchResult = document.getElementById('pokemonsohw');
-    
+
     if (search.length > 2) {
         pokemonSearchResult.innerHTML = '';
-        
+
         for (let i = 0; i < pokemonName.length; i++) {
             const element = pokemonName[i];
             if (element.toLowerCase().includes(search)) {
-                pokemonSearchResult.innerHTML += createPokemonCardHTML(i);                                
+                pokemonSearchResult.innerHTML += createPokemonCardHTML(i);
             }
         }
     } else {
-        pokemonSearchResult.innerHTML = '';          
+        pokemonSearchResult.innerHTML = '';
         offset = 0;
         renderPokemon();
-        
+
     }
 
 }

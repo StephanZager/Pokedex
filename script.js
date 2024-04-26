@@ -8,26 +8,29 @@ let pokemonStats = [];
 let pokemonBaseStat = [];
 let pokemonStatsName = [];
 let pokemonWeight = [];
-
 let offset = 0;
+
+async function init(){
+    await loadPokemon();
+    document.getElementById('loadingOverlay').style.display = 'none';
+}
 
 async function loadPokemon() {
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
     let response = await fetch(url);
     let responseAsJson = await response.json();
     pokemon = responseAsJson['results'];
-    console.log(pokemon)
-
     await loadPokemonInformation();
-    
 }
 
 async function loadMorePokemon() {
+    document.getElementById('loadingOverlay').style.display = 'flex';
     offset += 20;
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=' + offset;
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     let newPokemon = responseAsJson['results'];
+
     if (offset < 160) {
         for (let i = 0; i < newPokemon.length; i++) {
             let newLoadPokemon = newPokemon[i];
@@ -35,7 +38,7 @@ async function loadMorePokemon() {
         }
         await loadPokemonInformation();
     }
-    
+    document.getElementById('loadingOverlay').style.display = 'none';
 }
 
 async function loadPokemonInformation() {
@@ -51,8 +54,6 @@ async function loadPokemonInformation() {
         pokemonWeight.push(pokemonDetails['weight']);
     }
     await renderPokemon();
-    console.log(pokemonDetails);
-    
 }
 
 function pokemonCardWindowClose() {
@@ -96,14 +97,9 @@ function previousPokemon(previouspokemon) {
 
 function statsMyChart() {
     document.getElementById('pokemon-info-section').classList.add('d-none');
-
     let statsChart = document.getElementById('stats-chart');
-    
     statsChart.classList.remove('d-none')
-    statsChart.innerHTML += `<div>                      
-                            <canvas class="my-chart" id="myChart"></canvas>
-                            </div>                                                     
-                            `;
+    statsChart.innerHTML += statsChartHTML();
     renderChart();
 }
 
