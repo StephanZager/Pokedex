@@ -9,7 +9,7 @@ let pokemonBaseStat = [];
 let pokemonStatsName = [];
 let offset = 0;
 
-async function loadPokemon() { // hier ne if abfrage gucken ob sie schon drinne sin also if(pokenon === ....)
+async function loadPokemon() {
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
     let response = await fetch(url);
     let responseAsJson = await response.json();
@@ -25,11 +25,11 @@ async function loadMorePokemon() {
     let reponse = await fetch(url);
     let responseAsJson = await reponse.json();
     let newPokemon = responseAsJson['results'];
-    if (offset < 140) {
+    if (offset < 160) {
         for (let i = 0; i < newPokemon.length; i++) {
             let newLoadPokemon = newPokemon[i];
             pokemon.push(newLoadPokemon);
-        }        
+        }
         await loadPokemonInformation();
     }
 }
@@ -89,10 +89,19 @@ function previousPokemon(previouspokemon) {
 }
 
 function statsMyChart() {
-    document.getElementById('stats-chart').innerHTML += `<div>                      
-                                                        <canvas class="my-chart" id="myChart"></canvas>
-                                                        </div>                                                     
-                                                            `;
+    document.getElementById('pokemon-info-section').classList.add('d-none');
 
+    let statsChart = document.getElementById('stats-chart');
+    
+    statsChart.classList.remove('d-none')
+    statsChart.innerHTML += `<div>                      
+                            <canvas class="my-chart" id="myChart"></canvas>
+                            </div>                                                     
+                            `;
     renderChart();
+}
+
+function pokemonInfoCard() {
+    document.getElementById('pokemon-info-section').classList.remove('d-none');
+    document.getElementById('stats-chart').classList.add('d-none');
 }

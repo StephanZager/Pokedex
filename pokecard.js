@@ -10,25 +10,24 @@ function openPokemonCardHTML(i) {
     <div id="pokemon-card-window-close" onclick="pokemonCardWindowClose()">
         <div class="bg">
             <div class="poke-card" onclick="doNotClose(event)">
-                <div id="pokecard" class="border ${pokemonType[i]}">
-                    <div>
-                        <span class="pokemon-id">${pokemonId[i]}</span>
-                        <span class="pokemon-name">${pokemonName[i]}</span>
-                        <span class="pokemon-type">${pokemonType[i]}</span>
-                    </div>
+                <div id="pokecard" class="border ${pokemonType[i]} shadow-background">
                     <div class="pokeimg">
                         <img class="poke-img-card"  src="${pokemonImg[i]}" alt="Pokemon Image"><br>
                     </div> 
                     <div class="menu-strip">
-                        <p>INFO</p>
+                        <p  onclick="pokemonInfoCard()">INFO</p>
                         <p onclick="statsMyChart()">STATS</p>
                     </div>
 
                     <img class="right-arrow" src="/img/rechter-pfeil (2).png" onclick="nextPokemon(${i})">
                     <img class="left-arrow" src="/img/linker pfeil.png" onclick="previousPokemon(${i})">
+                    <span class="poke-id">#${pokemonId[i]}</span>
                 </div>
-                <div class="info-section"> 
-                    <div>                    
+                <div class="info-section">                     
+                    <div id="pokemon-info-section">
+                        <span class="pokemon-id">#${pokemonId[i]}</span>
+                        <span class="pokemon-name">${pokemonName[i]}</span>
+                        <span class="pokemon-type">${pokemonType[i]}</span>                               
                     </div>
                     <div id="stats-chart" >                             
                     </div>
