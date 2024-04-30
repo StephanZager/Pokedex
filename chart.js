@@ -16,16 +16,17 @@ let myChartBorderColor = [
     'rgb(153, 102, 255)',
     'rgb(201, 203, 207)'];
 
-async function renderChart() {
+async function renderChart(i) {
     const ctx = document.getElementById('myChart');
+    let stats = pokemons[i]['stats'];
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: pokemonStatsName,
+            labels: ['HP', 'Atk', 'Def', 'SpA', 'SpD', 'Spe'],
             datasets: [{
                 label: 'Stats',
-                data: pokemonBaseStat,
+                data: stats,
                 backgroundColor: myChartBackgroundColor,
                 borderColor: myChartBorderColor,
                 borderWidth: 1
@@ -43,7 +44,7 @@ async function renderChart() {
 
 
 function statsChartHTML() {
-    return`
+    return `
     <div>                      
         <canvas class="my-chart" id="myChart"></canvas>
     </div>                                                     

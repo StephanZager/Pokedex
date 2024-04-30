@@ -19,8 +19,8 @@ function searchPokemonName(search, pokemonSearchResult) {
     if (search.length > 2) {
         pokemonSearchResult.innerHTML = '';
 
-        for (let i = 0; i < pokemonName.length; i++) {
-            const pokemonname = pokemonName[i];
+        for (let i = 0; i < pokemons.length; i++) {
+            const pokemonname = pokemons[i]['name'];
             if (pokemonname.toLowerCase().includes(search)) {
                 pokemonSearchResult.innerHTML += createPokemonCardHTML(i);
             }
@@ -34,15 +34,16 @@ function searchPokemonName(search, pokemonSearchResult) {
 }
 
 function createPokemonCardHTML(i) {
+    let pokemon = pokemons[i];
     return `
-        <div onclick="openPokemonCard(${i})" class="pokecard ${pokemonType[i]}" id="pokecards${i}">
+        <div onclick="openPokemonCard(${i})" class="pokecard ${pokemon.type}" id="pokecards${i}">
             <div class="pokemon-info">
-                <span class="poke-id">#${pokemonId[i]}</span>
-                <span class="poke-name"><b>${pokemonName[i]}</b></span>
-                <span class="poke-type">${pokemonType[i]}</span>
+                <span class="poke-id">#${pokemon.id}</span>
+                <span class="poke-name"><b>${pokemon.name}</b></span>
+                <span class="poke-type">${pokemon.type}</span>
             </div>
             <div class="poke-img">
-                <img class="poke-img" src="${pokemonImg[i]}" alt="Pokemon Image"><br>
+                <img class="poke-img" src="${pokemon.image}" alt="${pokemon.name} Image"><br>
             </div>
         </div>
     `;

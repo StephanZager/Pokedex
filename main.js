@@ -1,19 +1,13 @@
 let pokemon = [];
-let pokemonDetails;
-let pokemonId = [];
-let pokemonName = [];
-let pokemonImg = [];
-let pokemonType = [];
-let pokemonStats = [];
-let pokemonBaseStat = [];
-let pokemonStatsName = [];
-let pokemonWeight = [];
+let pokemons = [];
 let offset = 0;
 
 async function init() {
     await loadPokemon();
     loadingOverlay();
 }
+
+
 
 async function loadPokemon() {
     let url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0';
@@ -38,35 +32,40 @@ async function loadMorePokemon() {
         }
         await loadPokemonInformation();
     }
+
     loadingOverlay();
 }
+
+
+
 
 async function loadPokemonInformation() {
     for (let i = offset; i < pokemon.length; i++) {
         let url = 'https://pokeapi.co/api/v2/pokemon/' + (i + 1);
         let response = await fetch(url);
         pokemonDetails = await response.json();
-        pokemonId.push(pokemonDetails['id']);
-        pokemonName.push(pokemonDetails['name']);
-        pokemonImg.push(pokemonDetails['sprites']['other']['dream_world']['front_default']);
-        pokemonType.push(pokemonDetails['types']['0']['type']['name']);
-        pokemonStats.push(pokemonDetails['stats']);
-        pokemonWeight.push(pokemonDetails['weight']);
+
+        let pokemonInfo = {
+            'id': pokemonDetails['id'],
+            'name': pokemonDetails['name'],
+            'image': pokemonDetails['sprites']['other']['dream_world']['front_default'],
+            'type': pokemonDetails['types'][0]['type']['name'],
+            'weight': pokemonDetails['weight'],
+            'stats': test1(pokemonDetails),
+        };
+        pokemons.push(pokemonInfo);
     }
     await renderPokemon();
+
 }
 
-async function renderPokemonStats(i) {
-    pokemonBaseStat = [];
-    pokemonStatsName = [];
 
-    for (let j = 0; j < 6; j++) {
-        if (j < pokemonStats[i].length) {
-            const stats = pokemonStats[i][j];
-            pokemonBaseStat.push(stats['base_stat']);
-            pokemonStatsName.push(stats['stat']['name']);
-        }
+function test1(pokemonDetails) {
+    let baseStats = [];
+    for (let j = 0; j < pokemonDetails['stats'].length; j++) {
+        baseStats.push(pokemonDetails['stats'][j]['base_stat']);
     }
+    return baseStats;
 }
 
 function loadingOverlay() {
